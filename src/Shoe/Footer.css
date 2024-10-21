@@ -1,0 +1,63 @@
+.scroll-container::-webkit-scrollbar {
+    height: 6px; /* Minimal height for the horizontal scrollbar */
+  }
+  
+  .scroll-container::-webkit-scrollbar-track {
+    background: transparent; /* Transparent scrollbar track */
+  }
+  
+  .scroll-container::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3); /* Light color for the scrollbar thumb */
+    border-radius: 10px; /* Rounded scrollbar */
+  }
+  
+  .scroll-container::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.5); /* Darker on hover */
+  }
+  
+  .footer {
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden; /* Prevent overflow of the footer itself */
+  }
+  
+  .scroll-container {
+    display: flex;
+    gap: 30px; /* Space between the dots */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent dots from wrapping */
+    scroll-behavior: smooth; /* Smooth scrolling effect */
+    -webkit-overflow-scrolling: touch; /* Enable momentum scrolling on touch devices */
+  }
+  
+  .dot {
+    width: 80px;
+    height: 80px;
+    background-image: url('../images/ProductHolderMini.png'); /* Background for the dot */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* So the overlay image stays on top */
+    flex-shrink: 0; /* Prevent the dot from shrinking when more dots are added */
+    cursor: pointer;
+    opacity: 0.5;
+    transition: transform 0.2s ease, opacity 0.2s ease; /* Smooth transition */
+  }
+  
+  .dot.active {
+    transform: scale(1.2); /* Increase size to indicate it's active */
+    opacity: 0.8; /* Ensure it's more visible */
+  }
+  
+  .dot-overlay {
+    width: 80px; /* Size of the image overlaid on the background */
+    height: 80px;
+    object-fit: contain;
+    position: absolute; /* Overlay on top of the background */
+  }
+  

@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap'); /* Import the Rock Salt font */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  height: 100%;
+  background: radial-gradient(circle at 0% 0%, #000, #555); /* Circular gradient at top-left */
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh; /* Minimum height will cover the full viewport */
+  padding: 20px;
+  color: white;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.prev-arrow, .next-arrow {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50px;
+  height: 50px;
+}
+
+.prev-arrow {
+  background-image: url('../images/leftSwitch.png');
+  position: absolute;
+  left: 10px;
+}
+
+.prev-text {
+  position: absolute;
+  left: 20px;
+  top: 130px;
+  font-family: 'Rock Salt', cursive;
+  font-size: 14px;
+  color: white;
+  text-align: center;
+}
+
+.next-arrow {
+  background-image: url('../images/rightSwitch.png');
+  position: absolute;
+  right: 10px;
+}
+
+.next-text {
+  position: absolute;
+  right: 20px;
+  top: 82px;
+  font-family: 'Rock Salt', cursive;
+  font-size: 14px;
+  color: white;
+  text-align: center;
+}
+
+
+.holder-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 250px;
+}
+
+.shoe-holder {
+  position: absolute;
+  background-image: url('../images/ProductHolderBig.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 250px;
+  height: 250px;
+  z-index: 1;
+}
+.shoe-image {
+  max-width: 200px;
+  height: auto;
+  position: absolute;
+  z-index: 2;
+  opacity: 0;
+  transform: translateX(0);
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+/* Outgoing slide to the left (when moving to the next image) */
+.shoe-image.next {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+/* Outgoing slide to the right (when moving to the previous image) */
+.shoe-image.prev {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+/* Incoming image from the right */
+.shoe-image.next.active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Incoming image from the left */
+.shoe-image.prev.active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+
+.more-button {
+  position: relative;
+  width: 200px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #002244;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+.more-button:hover {
+  background-color: #003366;
+}
+
+.more-info-text {
+  font-family: 'Rock Salt', cursive;
+  font-size: 18px;
+  color: white;
+}
